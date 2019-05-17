@@ -5,12 +5,13 @@ from flask import send_file
 app = Flask(__name__)
 PORT = 31339
 HOST = '0.0.0.0'
+PASSWORD = open('password.txt', 'r').read()
 
 
 @app.route("/", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        if request.form['uname'] == "admin" and request.form['password'] == "verySecretSuchPassword":
+        if request.form['uname'] == "admin" and request.form['password'] == PASSWORD:
             return send_file("flag.txt", mimetype='text/html')
         else:
             return "Incorrect username/password. Hint: don't bruteforce, just be smart"

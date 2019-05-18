@@ -1,2 +1,3 @@
 flag.txt
 password.txt
+*.pyc
